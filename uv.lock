@@ -6,6 +6,7 @@ requires-python = ">=3.13"
 members = [
     "vnpy",
     "vnpy-clickhouse",
+    "vnpy-tqsdk",
 ]
 
 [[package]]
@@ -2024,7 +2025,7 @@ requires-dist = [
     { name = "vnpy-ctp", specifier = ">=6.7.7.1" },
     { name = "vnpy-datamanager", specifier = ">=1.1.1" },
     { name = "vnpy-sqlite", specifier = ">=1.1.0" },
-    { name = "vnpy-tqsdk", specifier = ">=3.4.7" },
+    { name = "vnpy-tqsdk", editable = "package/vnpy_tqsdk" },
 ]
 provides-extras = ["alpha", "dev"]
 
@@ -2104,14 +2105,19 @@ wheels = [
 
 [[package]]
 name = "vnpy-tqsdk"
-version = "3.4.7"
-source = { registry = "https://pypi.org/simple" }
+version = "0.1.0"
+source = { editable = "package/vnpy_tqsdk" }
 dependencies = [
+    { name = "loguru" },
+    { name = "pandas" },
     { name = "tqsdk" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6d/13/e986c2a2e81b55cac6148ca5265e94252ce3397de6def860075c68ad97fc/vnpy_tqsdk-3.4.7.tar.gz", hash = "sha256:180f93513210a3afba7c82e33ec621d286630d883097d565122b1d3da1690ae3", size = 4524, upload_time = "2023-09-03T14:00:22.857Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/97/ac/3f3dadb154a98fd399467b78670c2da68f74a1c5d1f5ad65476adb40361d/vnpy_tqsdk-3.4.7-py3-none-any.whl", hash = "sha256:117fb0053b1e0f6ac5b4f85fd6774773fb8ebc70a85a18e340fab0fe40293d02", size = 5395, upload_time = "2023-09-03T14:00:21.418Z" },
+
+[package.metadata]
+requires-dist = [
+    { name = "loguru", specifier = ">=0.7.3" },
+    { name = "pandas", specifier = ">=2.2.3" },
+    { name = "tqsdk", specifier = ">=3.8.0" },
 ]
 
 [[package]]

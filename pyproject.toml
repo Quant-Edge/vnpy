@@ -38,14 +38,14 @@ dependencies = [
     "nbformat>=5.10.4",
     "polars>=1.29.0",
     "vnpy-ctp>=6.7.7.1",
-    "vnpy-tqsdk>=3.4.7",
     "vnpy-ctastrategy>=1.3.1",
     "vnpy-ctabacktester>=1.1.6",
     "importlib-metadata>=8.7.0",
     "vnpy-sqlite>=1.1.0",
     "vnpy-datamanager>=1.1.1",
-    'vnpy-clickhouse',
     "pyarrow>=20.0.0",
+    "vnpy-tqsdk",
+    'vnpy-clickhouse',
 ]
 keywords = ["quant", "quantitative", "investment", "trading", "algotrading"]
 
@@ -67,6 +67,7 @@ members = ["package/*"]
 [tool.uv.sources]
 ta-lib = [{ index = "ta-lib" }]
 vnpy-clickhouse = { workspace = true }
+vnpy-tqsdk = { workspace = true }
 
 [[tool.uv.index]]
 name = "ta-lib"

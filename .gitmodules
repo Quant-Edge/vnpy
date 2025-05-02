@@ -1,3 +1,6 @@
 [submodule "package/vnpy_clickhouse"]
 	path = package/vnpy_clickhouse
 	url = git@github.com:Quant-Edge/vnpy_clickhouse.git
+[submodule "package/vnpy_tqsdk"]
+	path = package/vnpy_tqsdk
+	url = git@github.com:Quant-Edge/vnpy_tqsdk.git

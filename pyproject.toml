@@ -43,6 +43,8 @@ dependencies = [
     "vnpy-ctabacktester>=1.1.6",
     "importlib-metadata>=8.7.0",
     "vnpy-sqlite>=1.1.0",
+    "vnpy-datamanager>=1.1.1",
+    'vnpy-clickhouse'
 ]
 keywords = ["quant", "quantitative", "investment", "trading", "algotrading"]
 
@@ -58,8 +60,12 @@ alpha = [
 ]
 dev = ["pandas-stubs>=2.2.3.250308", "hatchling>=1.27.0", "babel>=2.17.0"]
 
+[tool.uv.workspace]
+members = ["package/*"]
+
 [tool.uv.sources]
 ta-lib = [{ index = "ta-lib" }]
+vnpy-clickhouse = { workspace = true }
 
 [[tool.uv.index]]
 name = "ta-lib"

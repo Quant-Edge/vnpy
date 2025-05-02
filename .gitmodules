@@ -1,0 +1,3 @@
+[submodule "package/vnpy_clickhouse"]
+	path = package/vnpy_clickhouse
+	url = git@github.com:Quant-Edge/vnpy_clickhouse.git

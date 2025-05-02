@@ -44,7 +44,8 @@ dependencies = [
     "importlib-metadata>=8.7.0",
     "vnpy-sqlite>=1.1.0",
     "vnpy-datamanager>=1.1.1",
-    'vnpy-clickhouse'
+    'vnpy-clickhouse',
+    "pyarrow>=20.0.0",
 ]
 keywords = ["quant", "quantitative", "investment", "trading", "algotrading"]
 

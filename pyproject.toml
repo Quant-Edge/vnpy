@@ -37,7 +37,6 @@ dependencies = [
     "loguru>=0.7.3",
     "nbformat>=5.10.4",
     "polars>=1.29.0",
-    "vnpy-ctp>=6.7.7.1",
     "vnpy-ctastrategy>=1.3.1",
     "vnpy-ctabacktester>=1.1.6",
     "importlib-metadata>=8.7.0",
@@ -46,6 +45,9 @@ dependencies = [
     "pyarrow>=20.0.0",
     "vnpy-tqsdk",
     'vnpy-clickhouse',
+    "vnpy-ctp>=6.7.7.1",
+    "ipykernel>=6.29.5",
+    "vnpy-rqdata>=3.1.4.0",
 ]
 keywords = ["quant", "quantitative", "investment", "trading", "algotrading"]
 

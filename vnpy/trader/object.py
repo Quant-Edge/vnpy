@@ -165,7 +165,6 @@ class BarData(BaseData):
             "high_price": self.high_price,
             "low_price": self.low_price,
             "close_price": self.close_price,
-            "gateway_name": self.gateway_name
         }
 
 @dataclass

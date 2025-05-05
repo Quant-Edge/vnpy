@@ -1,6 +1,9 @@
 from pathlib import Path
+import datetime as dt
 
+from loguru import logger
 import polars as pl
+from tqdm import tqdm
 
 from vnpy.trader.datafeed import get_datafeed
 from vnpy.trader.database import get_database, DB_TZ
@@ -9,20 +12,18 @@ from vnpy.trader.utility import extract_vt_symbol
 from vnpy.trader.setting import SETTINGS
 from vnpy_tqsdk.tqsdk_datafeed import TqsdkDatafeed
 
+
 datafeed: TqsdkDatafeed = get_datafeed()
 database = get_database()
 cur_path = Path(__file__).parent
 
-# df = datafeed.query_all(ind_class="CONT", interval=Interval.HOUR, data_length=1e4)
-# df.to_parquet(cur_path / "cont_df.parquet", index=False)
-df = (
-    pl.read_parquet(cur_path / "cont_df.parquet")
-    .with_columns(pl.col("datetime").cast(pl.Datetime(time_unit="ns", time_zone=DB_TZ)))
-    .rename({"datetime": "open_time", "symbol": "jj_code"})
-    .with_columns(
-        close_time=pl.col("open_time")
-        + pl.duration(minutes=59, seconds=59, milliseconds=999)
-    )
+interval = Interval.HOUR
+# df = datafeed.query_free_all(ind_class="CONT", interval=interval, data_length=1e4)
+# datafeed.save_df(df=df, file_path=cur_path / "cont_df.parquet")
+df = pl.read_parquet(cur_path / "cont_df.parquet")
+df = datafeed.format_df(df)
+early_df = datafeed.get_early_pro_data(
+    cur_df=df, interval=interval, start_datetime=dt.datetime(2010, 1, 1)
 )
-
-pass
+df = pl.concat([early_df, df]).sort(["jj_code", "open_time"])
+datafeed.save_df(df=df, file_path=cur_path / "cont_2010_now_df.parquet")

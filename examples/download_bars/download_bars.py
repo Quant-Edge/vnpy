@@ -1,15 +1,11 @@
 from pathlib import Path
 import datetime as dt
 
-from loguru import logger
 import polars as pl
-from tqdm import tqdm
 
 from vnpy.trader.datafeed import get_datafeed
-from vnpy.trader.database import get_database, DB_TZ
+from vnpy.trader.database import get_database
 from vnpy.trader.constant import Interval
-from vnpy.trader.utility import extract_vt_symbol
-from vnpy.trader.setting import SETTINGS
 from vnpy_tqsdk.tqsdk_datafeed import TqsdkDatafeed
 
 
